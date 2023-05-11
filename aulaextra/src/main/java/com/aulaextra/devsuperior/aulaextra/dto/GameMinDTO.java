@@ -1,6 +1,7 @@
 package com.aulaextra.devsuperior.aulaextra.dto;
 
 import com.aulaextra.devsuperior.aulaextra.entities.Game;
+import com.aulaextra.devsuperior.aulaextra.projections.GameMinProjection;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +28,14 @@ public class GameMinDTO {
 		year = Entity.getYear();
 		imgUrl = Entity.getImgUrl();
 		shortDescription = Entity.getShortDescription();
+	}	
+		public GameMinDTO(GameMinProjection projection) {
+			super();
+			id = projection.getId();
+			title = projection.getTitle();
+			year = projection.getYear();
+			imgUrl = projection.ImgUrl();
+			shortDescription = projection.getShortDescription();
 	}
 
 	public Long getId() {
